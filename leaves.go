@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/dmitryikh/leaves/transformation"
+	"github.com/narvar/leaves/transformation"
 )
 
 // BatchSize for parallel task

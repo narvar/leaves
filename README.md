@@ -50,7 +50,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dmitryikh/leaves"
+	"github.com/narvar/leaves"
 )
 
 func main() {

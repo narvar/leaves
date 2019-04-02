@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dmitryikh/leaves/transformation"
-	"github.com/dmitryikh/leaves/util"
+	"github.com/narvar/leaves/transformation"
+	"github.com/narvar/leaves/util"
 )
 
 type lgEnsembleJSON struct {

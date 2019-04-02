@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/dmitryikh/leaves/mat"
-	"github.com/dmitryikh/leaves/transformation"
-	"github.com/dmitryikh/leaves/util"
+	"github.com/narvar/leaves/mat"
+	"github.com/narvar/leaves/transformation"
+	"github.com/narvar/leaves/util"
 )
 
 func isFileExists(filename string) bool {

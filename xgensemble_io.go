@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dmitryikh/leaves/internal/xgbin"
-	"github.com/dmitryikh/leaves/transformation"
+	"github.com/narvar/leaves/internal/xgbin"
+	"github.com/narvar/leaves/transformation"
 )
 
 func xgSplitIndex(origNode *xgbin.Node) uint32 {
@@ -227,6 +227,11 @@ func XGEnsembleFromReader(reader *bufio.Reader, loadTransformation bool) (*Ensem
 	for i := int32(0); i < nTrees; i++ {
 		tree, err := xgTreeFromTreeModel(origModel.Trees[i], header.Param.NumFeatures)
 		if err != nil {
+			// NOTE: Added this logic to handle empty trees that Xgboost provides
+			if err.Error() == "logic error: got origNode.CLeft < 0" || err.Error() == "logic error: got origNode.CRight < 0" {
+				err = nil
+				continue
+			}
 			return nil, fmt.Errorf("error while reading %d tree: %s", i, err.Error())
 		}
 		e.Trees = append(e.Trees, tree)
